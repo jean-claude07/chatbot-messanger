@@ -3,13 +3,9 @@ require 'facebook/messenger'
 include Facebook::Messenger
 
 Facebook::Messenger::Subscriptions.subscribe(
-  access_token: ENV["ACCESS_TOKEN"]
+  access_token: ENV["ACCESS_TOKEN"], subscribed_fields: SUBSCRIBED_PARAMS
 )
 
 Bot.on :message do |message| 
-    if message.text.include? "bonjour"
-        message.reply(text: "bonjour, qu'est ce que je peut faire pour vous?")
-    else
-        message.reply(text: "bonjour")
-    end
+    message.reply(text: "bonjour")
 end
