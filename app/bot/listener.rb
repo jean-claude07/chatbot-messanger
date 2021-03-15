@@ -5,7 +5,7 @@ include Facebook::Messenger
 class Listener
   Facebook::Messenger::Subscriptions.subscribe(
     access_token: ENV['ACCESS_TOKEN'],
-    subscribed_fields: %w['messages', 'message_deliveries']
+    subscribed_fields: %w[messages, message_deliveries]
   )
 
   Bot.on :message do |message|
